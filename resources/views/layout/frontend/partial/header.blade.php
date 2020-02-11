@@ -7,7 +7,7 @@
 
         <ul class="main-menu visible-on-click" id="main-menu">
             <li><a href="{{route('home')}}">Home</a></li>
-            <li><a href="#">Categories</a></li>
+            <li><a href="{{route('categories')}}">Categories</a></li>
             <li><a href="#">Features</a></li>
             @guest
             <li class="nav-item">
@@ -23,11 +23,10 @@
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
             {{-- <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"

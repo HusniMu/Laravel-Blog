@@ -52,4 +52,10 @@ class PostController extends Controller
         $tag = Tag::where('slug',$slug)->first();
         return view('tag',compact('tag','posts'));
     }
+
+    public function category()
+    {
+        $categories = Category::all();
+        return view('categories',compact('categories'));
+    }
 }
