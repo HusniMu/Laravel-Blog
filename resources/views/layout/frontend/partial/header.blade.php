@@ -20,8 +20,12 @@
             @endif
             @else
             <li class="nav-item">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                <a href="#">
+                    {{ Auth::user()->name }} <strong>Profile</strong>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -34,12 +38,10 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                <div class="dropdown-menu dropdown-menu-bottom" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -49,11 +51,10 @@
         </ul><!-- main-menu -->
 
         <div class="src-area">
-        <form method="GET" action="{{route('search')}}">
+            <form method="GET" action="{{route('search')}}">
                 <button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
-        <input class="src-input" type="text" placeholder="Type of search" name="query" value="{{isset($query) ? $query : ''}}">
+                <input class="src-input" type="text" placeholder="Type of search" name="query" value="{{isset($query) ? $query : ''}}">
             </form>
         </div>
-
     </div><!-- conatiner -->
 </header>

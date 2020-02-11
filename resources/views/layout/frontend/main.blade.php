@@ -37,7 +37,7 @@
     <script src="{{asset('/assets/frontend/js/bootstrap.js')}}"></script>
 
     {{-- tether --}}
-    <script src="{{asset('/assets/frontend/js/tether.js')}}"></script>
+    <script src="{{asset('/assets/frontend/js/tether.min.js')}}"></script>
 
     {{-- swiper --}}
     <script src="{{asset('/assets/frontend/js/swiper.js')}}"></script>
