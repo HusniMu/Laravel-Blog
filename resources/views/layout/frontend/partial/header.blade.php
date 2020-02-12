@@ -20,9 +20,19 @@
             @endif
             @else
             <li class="nav-item">
-                <a href="#">
-                    {{ Auth::user()->name }} <strong>Profile</strong>
-                </a>
+                @if(Auth::user()->role_id == 1)
+                    <a href="{{route('admin.dashboard')}}">
+                        {{ Auth::user()->name }} <strong>Profile</strong>
+                    </a>
+                @elseif(Auth::user()->role_id == 2)
+                    <a href="{{route('author.dashboard')}}">
+                        {{ Auth::user()->name }} <strong>Profile</strong>
+                    </a>
+                @else
+                    <a href="{{route('member.dashboard')}}">
+                        {{ Auth::user()->name }} <strong>Profile</strong>
+                    </a>
+                @endif
             </li>
             <li class="nav-item">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

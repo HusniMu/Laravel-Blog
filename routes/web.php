@@ -74,6 +74,14 @@ Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 
     Route::put('password-update', 'SettingsController@updatePassword')->name('password.update');
 });
 
+Route::group(['as'=>'member.','prefix'=>'member','namespace'=>'Member','middleware'=>['auth','member']],function(){
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::get('settings', 'SettingsController@index')->name('settings');
+    Route::put('profile-update', 'SettingsController@updateProfile')->name('profile.update');
+    Route::put('password-update', 'SettingsController@updatePassword')->name('password.update');
+});
+
 View::composer('layout.frontend.partial.footer', function ($view) {
     $categories = App\Category::all();
     $view->with('categories',$categories);

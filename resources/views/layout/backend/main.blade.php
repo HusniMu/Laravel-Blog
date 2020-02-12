@@ -104,7 +104,6 @@
 
     <!-- Custom Js -->
     <script src="{{asset('assets/backend/js/admin.js')}}"></script>
-    {{-- <script src="{{asset('assets/backend/js/pages/index.js')}}"></script> --}}
 
     <!-- Demo Js -->
     <script src="{{asset('assets/backend/js/demo.js')}}"></script>
