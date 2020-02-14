@@ -46,7 +46,11 @@
                                     <tr>
                                         <td>{{$key+1}}</td>
                                         <td>{{$comment->comment}}</td>
-                                        <td>{{$comment->post_id}}</td>
+                                        <td>
+                                            <a href="{{route('post.details',$comment->post->slug)}}">
+                                                {{$comment->post->title}}
+                                            </a>
+                                        </td>
                                         <td>{{$comment->created_at->diffForHumans()}}</td>
                                     </tr>
                                 @endforeach
