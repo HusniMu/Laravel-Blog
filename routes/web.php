@@ -56,8 +56,15 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
     Route::get('/favorite', 'FavoriteController@index')->name('favorite.index');
 
-    Route::get('authors','AuthorController@index')->name('authors.index');
-    Route::delete('authors/{id}','AuthorController@destroy')->name('authors.destroy');
+    Route::get('authors','AuthorController@index')->name('author.index');
+    Route::get('author/{user}/edit','AuthorController@edit')->name('author.edit');
+    Route::put('author/{user}','AuthorController@updateAuthority')->name('author.update');
+    Route::delete('author/{id}','AuthorController@destroy')->name('author.destroy');
+
+    Route::get('members','MemberController@index')->name('member.index');
+    Route::get('member/{user}/edit','MemberController@edit')->name('member.edit');
+    Route::put('member/{user}','MemberController@updateAuthority')->name('member.update');
+    Route::delete('member/{id}','MemberController@destroy')->name('member.destroy');
 
     Route::get('/subscriber', 'SubscriberController@index')->name('subscriber.index');
     Route::delete('/subscriber/{subscriber}', 'SubscriberController@destroy')->name('subscriber.destroy');

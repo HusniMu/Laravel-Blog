@@ -37,7 +37,7 @@
     <div class="menu">
         <ul class="list">
             <li class="header">MAIN NAVIGATION</li>
-
+            {{-- admin --}}
             @if (Request::is('admin*'))
             <li class="{{Request::is('admin/dashboard') ? 'active' : ''}}">
                 <a href="{{route('admin.dashboard')}}">
@@ -75,10 +75,16 @@
                     <span>Favorites</span>
                 </a>
             </li>
-            <li class="{{Request::is('admin/authors') ? 'active' : ''}}">
-                <a href="{{route('admin.authors.index')}}">
+            <li class="{{Request::is('admin/author*') ? 'active' : ''}}">
+                <a href="{{route('admin.author.index')}}">
                     <i class="material-icons">account_circle</i>
                     <span>Authors</span>
+                </a>
+            </li>
+            <li class="{{Request::is('admin/member*') ? 'active' : ''}}">
+                <a href="{{route('admin.member.index')}}">
+                    <i class="material-icons">account_circle</i>
+                    <span>Members</span>
                 </a>
             </li>
             <li class="{{Request::is('admin/subscriber') ? 'active' : ''}}">
@@ -105,6 +111,7 @@
                 </form>
             </li>
             @endif
+            {{-- author --}}
             @if (Request::is('author*'))
             <li class="{{Request::is('author/dashboard') ? 'active' : ''}}">
                 <a href="{{route('author.dashboard')}}">

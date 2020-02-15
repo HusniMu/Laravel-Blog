@@ -7,22 +7,19 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
 
-class AuthorController extends Controller
+class MemberController extends Controller
 {
     public function index()
     {
-        $authors = User::authors()
-                ->withCount('posts')
-                ->withCount('comments')
-                ->withCount('favorite_posts')
-                ->get();
-        return view('admin.author.index',compact('authors'));
+        $members = User::members()->get();
+        return view('admin.member.index',compact('members'));
     }
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('admin.author.edit', compact('user', 'roles'));
+        return view('admin.member.edit', compact('user', 'roles'));
     }
     public function updateAuthority(Request $request, User $user)
     {
@@ -35,13 +32,13 @@ class AuthorController extends Controller
         $user->save();
 
         Toastr::success('Authority Successfully Updated', 'Success');
-        return redirect()->route('admin.author.index');
+        return redirect()->route('admin.member.index');
     }
 
     public function destroy($id)
     {
-        $author = User::findOrFail($id)->delete();
-        Toastr::success('Author Successfully Deleted','Success');
+        $member = User::findOrFail($id)->delete();
+        Toastr::success('Member Successfully Deleted','Success');
         return redirect()->back();
     }
 }
